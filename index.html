@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>6x6 Jigsaw Sudoku Competition</title>
+    <title> The Fracture Axis </title>
     <style>
         * {
             margin: 0;
@@ -36,32 +36,90 @@
             50% { opacity: 1; }
         }
 
-        body {
-            background:linear-gradient(to right, #112458, #362753, #0f1c27);
-            color: #f1f1f1;
-            min-height: 100vh;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow-x: hidden;
-        }
+/* Add/update these styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%; /* Ensure full width */
+    height: 100%; /* Ensure full height */
+    overflow: auto;
+    font-family: 'Roboto', sans-serif;
+    background: #001f3f;
+    color: #00bfff;
+}
+
+canvas#matrix-bg {
+    position: fixed !important; /* Use !important to override inline styles */
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 0 !important;
+}
+
+#main-content {
+    position: relative;
+    z-index: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.instructions h3 {
+    color: #00bfff;
+}
+
+.instructions ul li {
+    margin-bottom: 0.5rem;
+}
+
+
 
         .container {
             max-width: 800px;
             width: 100%;
             padding: 20px;
+            margin:0 auto;
         }
+        /* .container2{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        } */
+.container2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* center horizontally */
+    justify-content: flex-start; /* start from top */
+    padding-top: 50px;
+}
 
-        header {
+        .box-cont {
             text-align: center;
             margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #3498db;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            max-height: fit-content;
+            max-width: 2500px;
+            border: 2px solid #3498db;
+            border-radius: 14px;
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 30px rgba(51, 102, 255, 0.2);background: linear-gradient(135deg, rgba(17, 17, 37, 0.9), rgba(42, 42, 74, 0.9));
         }
 
         header h1 {
             font-size: 2.8rem;
+            margin-left: 30px;
+            margin-right: 30px;
             color: #3498db;
             margin-bottom: 10px;
             text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
@@ -78,14 +136,22 @@
             margin: 0 auto;
         }
 
-        .game-area {
+        /* .game-area {
             background-color: rgba(30, 40, 60, 0.8);
             border-radius: 15px;
             padding: 25px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             margin-bottom: 30px;
             border: 2px solid #3498db;
-        }
+        } */
+.game-area {
+    background-color: rgba(0, 0, 31, 0.75); /* darker and semi-transparent */
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    margin-bottom: 30px;
+    border: 2px solid #3498db;
+}
 
         .sudoku-container {
             display: flex;
@@ -94,6 +160,7 @@
         }
 
         #sudoku-grid {
+            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(6, 1fr);
             grid-template-rows: repeat(6, 1fr);
@@ -400,14 +467,17 @@
         <div id="pre-loader">
             <h2 >🕵🏻 Incognito Investigation</h2>
         </div>
-    </div>
-
-    <div class="container">
-        <header>
-            <h1><i class="fas fa-puzzle-piece"></i> Jigsaw Sudoku </h1>
-            <p class="subtitle">Fill the grid so that every row, column, and irregular region contains numbers 1-6</p>
+    <div>
+    
+    <canvas id="matrix-bg"></canvas>
+    <div id="main-content">
+    <div class="container2"> 
+        <header class="box-cont">
+            <h1><i class="fas fa-puzzle-piece"></i> FRACTURE GRID — DIMENSIONAL TESTING PROTOCOL </h1>
+            <p class="subtitle">Stabilize Logical Domains Before Temporal Distortion</p>
         </header>
-
+</div>
+    <div class="container"> 
         <div class="game-area">
             <div class="sudoku-container">
                 <div id="sudoku-grid"></div>
@@ -433,15 +503,15 @@
             </div>
         </div>
 
-        <div class="instructions">
-            <h3><i class="fas fa-info-circle"></i> Competition Rules</h3>
-            <ul>
-                <li>Fill the 6x6 grid with numbers 1-6</li>
-                <li>Use the number buttons or your keyboard (1-6) to fill cells</li>
-                <li>Use "Check Solution" to verify if your solution is correct</li>
-                <li>You are not allowed to use any solver or AI; doing so will result in disqualification</li>
-            </ul>
-        </div>
+<div class="instructions">
+    <h3><i class="fas fa-info-circle"></i> Operational Protocols</h3>
+    <ul>
+        <li>Stabilize the 6x6 fractal grid using predictive variables 1–6.</li>
+        <li>Input values via the numeric interface or keyboard controls (1–6) to align the domains.</li>
+        <li>Engage "Solution Verification" to confirm analytical integrity of the grid.</li>
+        <li>External computational aids, solvers, or AI intervention are strictly prohibited; protocol violations will trigger immediate analyst review.</li>
+    </ul>
+</div>
 
         <footer>
             <p>Incognito Investigation | Obsidiverse Pursuit</p>
@@ -494,6 +564,58 @@
                 }
             }, 1000);
         })();
+
+const canvas = document.getElementById('matrix-bg');
+const ctx = canvas.getContext('2d');
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const fontSize = 20;
+const columns = Math.floor(canvas.width / fontSize);
+const drops = Array(columns).fill().map(() => ({
+    y: Math.random() * canvas.height,
+    speed: 1 + Math.random() * 3,
+    opacity: 0.1 + Math.random() * 0.5
+}));
+
+const chars = '0123456789'.split('');
+
+// Draw function
+function draw() {
+    // Dark semi-transparent background for trails
+    ctx.fillStyle = 'rgba(0, 0, 31, 0.07)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.font = fontSize + "px monospace";
+
+    drops.forEach((drop, i) => {
+        // Randomly choose a character
+        const text = chars[Math.floor(Math.random() * chars.length)];
+
+        // Slight size variation for depth effect
+        ctx.fillStyle = `rgba(0, 191, 255, ${drop.opacity})`;
+        ctx.fillText(text, i * fontSize, drop.y);
+
+        // Move diagonally for more dynamic effect
+        drop.y += drop.speed;
+        if (drop.y > canvas.height) {
+            drop.y = -fontSize;
+            drop.opacity = 0.1 + Math.random() * 0.5;
+            drop.speed = 1 + Math.random() * 3;
+        }
+    });
+
+    requestAnimationFrame(draw);
+}
+
+draw();
+
+// Resize listener
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
 
         // Game variables
         let grid = [];
